@@ -1,3 +1,23 @@
+# tf2-pose-estimation
+
+A (WIP) port of [tf-pose-estimation](https://github.com/ildoonet/tf-pose-estimation) with support for Tensorflow 2.
+
+## NOTE: this project is still WIP, and might even never be finished! My personal knowledge about Tensorflow is almost inexistent but I am willing to try and learn.
+
+## The idea
+
+As the original project seems to not be very actively maintained anymore (though it is still impressive), I was willing to try and port it to TF2 in order to be able to use it with the latest up-to-date features of Tensorflow.
+
+The main issue faced by the project is the use of `tf.contrib`, which has been [sunset (read: removed)](https://github.com/tensorflow/community/blob/master/rfcs/20180907-contrib-sunset.md) when Tensorflow 2 came out. Fortunately, after a first glance it looked to me that most of these could be replaced with libs such as [`tf_slim`](https://github.com/google-research/tf-slim) for example, so I wanted to give it a shot.
+
+I started by running the `tf_upgrade_v2` script, fully aware that some issues would require manual fixing, but at least that gave me a first base of ported code, that is in this repo.
+
+The full list of what apparently needs to be done is in [report.txt](report.txt), which is the report file of the script. Let this act as a TODO for now :)
+
+---
+
+Original README below:
+
 # tf-pose-estimation
 
 'Openpose', human pose estimation algorithm, have been implemented using Tensorflow. It also provides several variants that have some changes to the network structure for **real-time processing on the CPU or low-power embedded devices.**
@@ -6,11 +26,11 @@
 
 Original Repo(Caffe) : https://github.com/CMU-Perceptual-Computing-Lab/openpose
 
-| CMU's Original Model</br> on Macbook Pro 15" | Mobilenet-thin </br>on Macbook Pro 15" | Mobilenet-thin</br>on Jetson TX2 |
-|:---------|:--------------------|:----------------|
-| ![cmu-model](/etcs/openpose_macbook_cmu.gif)     | ![mb-model-macbook](/etcs/openpose_macbook_mobilenet3.gif) | ![mb-model-tx2](/etcs/openpose_tx2_mobilenet3.gif) |
-| **~0.6 FPS** | **~4.2 FPS** @ 368x368 | **~10 FPS** @ 368x368 |
-| 2.8GHz Quad-core i7 | 2.8GHz Quad-core i7 | Jetson TX2 Embedded Board | 
+| CMU's Original Model</br> on Macbook Pro 15" | Mobilenet-thin </br>on Macbook Pro 15"                     | Mobilenet-thin</br>on Jetson TX2                   |
+|:---------------------------------------------|:-----------------------------------------------------------|:---------------------------------------------------|
+| ![cmu-model](/etcs/openpose_macbook_cmu.gif) | ![mb-model-macbook](/etcs/openpose_macbook_mobilenet3.gif) | ![mb-model-tx2](/etcs/openpose_tx2_mobilenet3.gif) |
+| **~0.6 FPS**                                 | **~4.2 FPS** @ 368x368                                     | **~10 FPS** @ 368x368                              |
+| 2.8GHz Quad-core i7                          | 2.8GHz Quad-core i7                                        | Jetson TX2 Embedded Board                          |
 
 Implemented features are listed here : [features](./etcs/feature.md)
 
